@@ -67,12 +67,17 @@
     color: var(--fg);
   }
   .nav-brand-mark {
-    width: 22px; height: 22px; border-radius: 4px;
-    background: linear-gradient(135deg, #1a1a1f 0%, #000 100%);
-    border: 1px solid #2a2a30;
-    display: grid; place-items: center;
-    font-size: 11px; font-weight: 800; color: var(--accent-y);
+    /* The hero cube, shrunk. Height-driven so the aspect stays true; at this
+       size the hero's 1px face strokes and edge highlights would land well
+       under a device pixel, so the three face tones carry the form alone --
+       lightened from the hero's values, which go muddy against the nav's
+       near-black at 24px. */
+    height: 24px;
+    width: auto;
+    flex: none;
+    display: block;
   }
+  .nav-brand:hover .nav-brand-mark { opacity: 0.85; }
   .nav-links { display: flex; gap: 22px; }
   .nav-links a {
     color: var(--fg-dim); font-size: 14px;
@@ -202,6 +207,9 @@
     font-size: clamp(56px, 9vw, 104px);
     font-weight: 800;
     letter-spacing: -3px;
+    /* Display type, so it wants tight leading -- inheriting the body's 1.55
+       put ~50px of empty air above and below the wordmark at full size. */
+    line-height: 1.05;
     margin: 0;
     background: linear-gradient(180deg, #fff 0%, #b8b8c0 100%);
     -webkit-background-clip: text;
@@ -624,4 +632,61 @@
   @media (max-width: 640px) {
     section { padding: 64px 0; }
     .page section:first-of-type { padding-top: 48px; }
+  }
+
+  /* ---------- Home page: fit the viewport ---------- */
+  /* index.html is nav + hero + footer and nothing else, so it should resolve
+     to one screen rather than a screen-and-a-bit. The old hero locked in
+     min-height:calc(100vh - 166px), which -- once the 56px nav and the ~220px
+     footer were added -- guaranteed ~110px of overflow at *every* window
+     size, so the scrollbar was always there and always led nowhere.
+
+     Instead: make the body a full-height flex column and let the hero absorb
+     whatever space is left over. min-height (not height) is deliberate --
+     if the content genuinely cannot fit, the page grows and scrolls
+     normally rather than clipping. */
+  body.home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Mobile browsers report 100vh as the URL-bar-hidden height, which
+     overshoots the visible area. dvh tracks the real viewport where it is
+     supported; the 100vh above stays as the fallback. */
+  @supports (min-height: 100dvh) {
+    body.home { min-height: 100dvh; }
+  }
+  body.home .hero {
+    flex: 1 1 auto;
+    /* Drop the fixed floor -- flex-grow now sizes this. */
+    min-height: 0;
+    padding: clamp(20px, 4.5vh, 80px) 0 clamp(24px, 5.5vh, 120px);
+  }
+
+  /* The hero's own furniture scales with viewport *height* as well as width.
+     A short-and-wide window (a laptop at 1440x790, a landscape phone) has
+     plenty of horizontal room, so width-only clamps keep the cube and
+     wordmark at full size and push the footer off-screen. min() lets
+     whichever axis is tighter win. */
+  body.home .logo-cube {
+    width: clamp(120px, min(30vw, 27vh), 320px);
+    margin: 0 auto clamp(14px, 3.4vh, 48px);
+  }
+  body.home .wordmark { font-size: clamp(40px, min(9vw, 10.5vh), 104px); }
+  body.home .tagline {
+    font-size: clamp(15px, min(2.2vw, 2.5vh), 24px);
+    margin-top: clamp(8px, 1.5vh, 16px);
+  }
+  body.home .cta { margin-top: clamp(18px, 3.8vh, 44px); }
+  body.home .hero-points { margin-top: clamp(14px, 3vh, 34px); }
+
+  /* The footer on this page carries a single colophon line. Its 40px top
+     margin, 24px padding and rule exist to separate it from the .footer-grid
+     block -- which no page actually renders -- so here they only burn height
+     that the hero could use. */
+  body.home footer { padding: clamp(14px, 2.6vh, 32px) 0 clamp(16px, 3vh, 40px); }
+  body.home .colophon {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
   }

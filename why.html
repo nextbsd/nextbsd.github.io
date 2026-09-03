@@ -19,7 +19,26 @@
 <nav class="nav">
   <div class="wrap nav-inner">
     <a class="nav-brand" href="index.html">
-      <span class="nav-brand-mark">N</span>
+      <svg class="nav-brand-mark" viewBox="60 60 280 320"
+           xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NextBSD cube">
+        <defs>
+          <linearGradient id="navcube-top" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#9a9aa6"/>
+            <stop offset="100%" stop-color="#5c5c66"/>
+          </linearGradient>
+          <linearGradient id="navcube-left" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#4a4a54"/>
+            <stop offset="100%" stop-color="#2a2a32"/>
+          </linearGradient>
+          <linearGradient id="navcube-right" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#70707c"/>
+            <stop offset="100%" stop-color="#44444e"/>
+          </linearGradient>
+        </defs>
+        <polygon points="200,60 340,140 200,220 60,140"   fill="url(#navcube-top)"/>
+        <polygon points="60,140 200,220 200,380 60,300"   fill="url(#navcube-left)"/>
+        <polygon points="340,140 200,220 200,380 340,300" fill="url(#navcube-right)"/>
+      </svg>
       NextBSD
     </a>
     <button class="nav-toggle" type="button" aria-label="Menu"
