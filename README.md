@@ -3,8 +3,21 @@
 Source for [nextbsd.org](https://nextbsd.org/) — a GitHub Pages site for the
 NextBSD project.
 
-A single static `index.html` plus a `CNAME` for the apex domain. No build
-step; GitHub Pages serves `index.html` directly.
+Static HTML with no build step; GitHub Pages serves the files directly.
+
+| File | Page |
+| --- | --- |
+| `index.html` | Landing page &mdash; logo, tagline, download CTA |
+| `why.html` | Why NextBSD &mdash; the feature case |
+| `status.html` | Component-by-component status |
+| `history.html` | Timeline, Bell Labs to now |
+| `team.html` | Who's building it |
+
+Shared across every page: `assets/style.css` and `assets/site.js`, plus a
+copy of the same `<nav>` and `<footer>` markup. There is no templating, so a
+change to the nav or footer has to be made in all five files.
+
+`CNAME` points the apex domain at the site.
 
 ## Local preview
 

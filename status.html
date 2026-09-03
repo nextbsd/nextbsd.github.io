@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Status &mdash; NextBSD</title>
+<meta name="description" content="Component-by-component status of NextBSD: kernel and Mach, launchd, libxpc, libdispatch, CoreFoundation, configd, IOKit, and what is still ahead.">
+<meta property="og:title" content="NextBSD Status">
+<meta property="og:description" content="Where the work stands, component by component.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nextbsd.org/status.html">
+<link rel="canonical" href="https://nextbsd.org/status.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23000'/%3E%3Ctext x='32' y='42' font-family='-apple-system,Helvetica,Arial' font-size='28' font-weight='700' text-anchor='middle' fill='%23ffcc00'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="page">
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="index.html">
+      <span class="nav-brand-mark">N</span>
+      NextBSD
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Menu"
+            aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="why.html" data-nav="why">Why</a>
+      <a href="status.html" data-nav="status" class="active" aria-current="page">Status</a>
+      <a href="history.html" data-nav="history">History</a>
+      <a href="team.html" data-nav="team">Team</a>
+      <a href="https://github.com/nextbsd-redux/nextbsd">GitHub</a>
+      <a href="https://github.com/orgs/nextbsd-redux/discussions">Discussions</a>
+      <a href="https://github.com/nextbsd-redux/nextbsd/wiki">Documentation</a>
+    </div>
+  </div>
+</nav>
+
+<section id="stack">
+  <div class="wrap">
+    <p class="kicker">Status</p>
+    <h2 class="section-title">Where the work stands.</h2>
+    <p class="section-lede">
+      Component by component &mdash; what is finished, what is being built
+      right now, and what is still ahead.
+    </p>
+
+    <div class="components">
+      <div class="component">
+        <div class="icon" style="color: var(--accent-g);">K</div>
+        <h4>Kernel + Mach</h4>
+        <p>Our own kernel, ABI-compatible with FreeBSD, with Mach built in &mdash; <code>mach_msg</code>, ports, port rights, bootstrap server. Kernel extensions provide drivers for GPU, Wi-Fi, and other hardware.</p>
+        <span class="tag ok">Done</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: #fff;">L</div>
+        <h4>launchd</h4>
+        <p>Apple&rsquo;s <code>launchd-842.92.1</code> &mdash; the last open-source release &mdash; ported onto our Mach + libxpc stack. PID 1 capable.</p>
+        <span class="tag ok">Done</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-r);">X</div>
+        <h4>libxpc</h4>
+        <p>Typed inter-process messaging on top of libdispatch + Mach. Forked from ravynOS; bootstrap server + connection lifecycle in flight.</p>
+        <span class="tag ok">Done</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-c);">D</div>
+        <h4>libdispatch</h4>
+        <p>Grand Central Dispatch with a native Mach backend for our kernel &mdash; <code>DISPATCH_SOURCE_TYPE_MACH_RECV</code> on kqueue.</p>
+        <span class="tag ok">Done</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-g);">C</div>
+        <h4>CoreFoundation</h4>
+        <p>Hybrid CF: GNUstep libs-corebase for value types; swift-corelibs CF for CFMachPort, CFRunLoop, CFBundle. Ships with Apple ICU.</p>
+        <span class="tag ok">Done</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-m);">N</div>
+        <h4>notifyd / ASL</h4>
+        <p>Lightweight named-event bus and Apple System Logger &mdash; structured log records, BSD-text dual output, same C API.</p>
+        <span class="tag ok">Done</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-y);">cfg</div>
+        <h4>configd</h4>
+        <p>One daemon owns network state, hostname, DNS. Apple&rsquo;s configd ported as <code>netconfigd</code> with a Mach-RPC API.</p>
+        <span class="tag ok">Done</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-m);">mdns</div>
+        <h4>mDNSResponder</h4>
+        <p>Apple&rsquo;s Bonjour &mdash; multicast DNS and DNS-SD service discovery, ported as the system mDNS daemon with the same <code>dns-sd</code> API.</p>
+        <span class="tag ok">Done</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-c);">io</div>
+        <h4>IOKit registry</h4>
+        <p>A replacement for <code>devmatch</code>/<code>devd</code> exposing an IOKit-shape IORegistry &mdash; <code>IOServiceWaitQuiet</code>, <code>IORegistryEntryGetBusyState</code>, and <code>IOKitWaitQuiet</code>.</p>
+        <span class="tag ok">Done</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-g);">ins</div>
+        <h4>Installer + Updater</h4>
+        <p>Lay down a fresh install, or move an existing system forward in place &mdash; from tagged releases or the rolling continuous stream alike.</p>
+        <span class="tag ok">Done</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-y);">kext</div>
+        <h4>Kernel extensions</h4>
+        <p>KMS graphics drivers ship as kexts today, matched to hardware by the IOKit registry with nothing to configure. Hundreds more are to follow, through an upcoming automated conversion process.</p>
+        <span class="tag work">In progress</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: #fff;">fs</div>
+        <h4>DiskArbitration</h4>
+        <p>DiskArbitration over <code>libgeom</code>, with disk arrival and removal delivered by the in-kernel IOKit registry.</p>
+        <span class="tag work">In progress</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-c);">lnx</div>
+        <h4>Linux compatibility</h4>
+        <p>Linux binaries run natively &mdash; the ABI, FUSE and <code>fdescfs</code> are all compiled in, and a well-built AppImage runs today. The remaining polish is making <em>every</em> AppImage work without a second thought.</p>
+        <span class="tag work">In progress</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-c);">bt</div>
+        <h4>Bluetooth</h4>
+        <p>Bluetooth support &mdash; pairing and the profiles that matter on a desktop: HID for wireless keyboards and mice, audio for headsets.</p>
+        <span class="tag plan">TODO</span>
+      </div>
+      <div class="component">
+        <div class="icon" style="color: var(--accent-c);">pm</div>
+        <h4>PowerManagement</h4>
+        <p>Darwin&rsquo;s <code>PowerManagement</code> &mdash; <code>pmset</code> and the power-management userland for sleep, wake, and battery policy.</p>
+        <span class="tag plan">TODO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="colophon">
+      <span>&copy; NextBSD project &middot; <a href="https://nextbsd.org/" style="color:inherit;">nextbsd.org</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+
+</body>
+</html>

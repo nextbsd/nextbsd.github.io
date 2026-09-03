@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>History &mdash; NextBSD</title>
+<meta name="description" content="From Bell Labs UNIX through Mach and NeXTSTEP into Darwin and the BSDs &mdash; the lineage NextBSD Redux picks up.">
+<meta property="og:title" content="NextBSD History">
+<meta property="og:description" content="Where NextBSD came from &mdash; Bell Labs to Mach to NeXTSTEP to here.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nextbsd.org/history.html">
+<link rel="canonical" href="https://nextbsd.org/history.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23000'/%3E%3Ctext x='32' y='42' font-family='-apple-system,Helvetica,Arial' font-size='28' font-weight='700' text-anchor='middle' fill='%23ffcc00'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="page">
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="index.html">
+      <span class="nav-brand-mark">N</span>
+      NextBSD
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Menu"
+            aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="why.html" data-nav="why">Why</a>
+      <a href="status.html" data-nav="status">Status</a>
+      <a href="history.html" data-nav="history" class="active" aria-current="page">History</a>
+      <a href="team.html" data-nav="team">Team</a>
+      <a href="https://github.com/nextbsd-redux/nextbsd">GitHub</a>
+      <a href="https://github.com/orgs/nextbsd-redux/discussions">Discussions</a>
+      <a href="https://github.com/nextbsd-redux/nextbsd/wiki">Documentation</a>
+    </div>
+  </div>
+</nav>
+
+<section id="history">
+  <div class="wrap">
+    <p class="kicker">History</p>
+    <h2 class="section-title">Where NextBSD came from.</h2>
+    <p class="section-lede">
+      A long lineage runs from Bell Labs UNIX, through Mach and NeXTSTEP, into
+      Darwin and the BSDs &mdash; and lands here. NextBSD Redux is the latest
+      pickup of work that has changed hands more than once.
+    </p>
+
+    <ul class="status-list">
+      <li class="status-item">
+        <span class="status-when">1969</span>
+        <div class="status-body">
+          <strong>UNIX at Bell Labs.</strong>
+          <p>AT&amp;T&rsquo;s Bell Labs builds UNIX &mdash; the operating system every system on this timeline ultimately descends from.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">1977</span>
+        <div class="status-body">
+          <strong>1BSD &mdash; the Berkeley line begins.</strong>
+          <p>UC Berkeley releases the first Berkeley Software Distribution, a set of enhancements layered on AT&amp;T UNIX.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">1983</span>
+        <div class="status-body">
+          <strong>4.2BSD: FFS and TCP/IP.</strong>
+          <p>Berkeley ships the Fast File System and TCP/IP networking &mdash; storage and networking groundwork that later BSDs, and macOS, would inherit.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">mid-1980s</span>
+        <div class="status-body">
+          <strong>Mach is born at Carnegie Mellon.</strong>
+          <p>CMU develops the Mach microkernel &mdash; a message-passing foundation that becomes the kernel core of NeXTSTEP and, later, Darwin.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">1985</span>
+        <div class="status-body">
+          <strong>Steve Jobs founds NeXT.</strong>
+          <p>After leaving Apple, Jobs starts NeXT to build a new generation of workstations and software.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">1989</span>
+        <div class="status-body">
+          <strong>NeXTSTEP ships.</strong>
+          <p>NeXT releases NeXTSTEP &mdash; the Mach kernel and BSD userland under an object-oriented application layer. The blueprint NextBSD follows.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">1993</span>
+        <div class="status-body">
+          <strong>FreeBSD and NetBSD fork from 386BSD.</strong>
+          <p>The open BSD distributions emerge and carry the Berkeley lineage forward. FreeBSD becomes the base NextBSD builds on.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">1996</span>
+        <div class="status-body">
+          <strong>Apple acquires NeXT.</strong>
+          <p>NeXTSTEP &mdash; Mach, BSD, and the Objective-C runtime &mdash; comes back to Apple and becomes the foundation of its next operating system.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">2000</span>
+        <div class="status-body">
+          <strong>Mac OS X on Darwin.</strong>
+          <p>Apple ships Mac OS X atop Darwin &mdash; the Mach kernel fused with BSD userland &mdash; the open-source core under every Apple OS since.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">2006</span>
+        <div class="status-body">
+          <strong>OpenDarwin winds down.</strong>
+          <p>The effort to ship Darwin as a standalone, installable operating system ends &mdash; leaving the system layer open but homeless.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">2015</span>
+        <div class="status-body">
+          <strong>The original NextBSD.</strong>
+          <p>A sponsored project sets out to bring the Darwin system layer &mdash; Mach IPC, launchd, libdispatch, notifyd &mdash; onto a FreeBSD base. Joe Maloney <a href="https://github.com/search?q=org%3ANextBSD+author%3Apkgdemon&amp;type=pullrequests&amp;s=updated&amp;o=asc">contributes</a> to it &mdash; EFI and ZFS loader work, release packaging, an i915 graphics update &mdash; the first thread running from that effort to this one.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">2016</span>
+        <div class="status-body">
+          <strong>NextBSD funding ends.</strong>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">2021</span>
+        <div class="status-body">
+          <strong>ravynOS begins.</strong>
+          <p>A new macOS-compatible effort starts on a FreeBSD base, pursuing a familiar desktop and app experience.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">2025</span>
+        <div class="status-body">
+          <strong>ravynOS moves to XNU.</strong>
+          <p>ravynOS shifts its kernel direction toward XNU.</p>
+        </div>
+      </li>
+      <li class="status-item">
+        <span class="status-when">2026</span>
+        <div class="status-body">
+          <strong>NextBSD Redux picks up the work.</strong>
+          <p>A new vision based on those earlier efforts.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="colophon">
+      <span>&copy; NextBSD project &middot; <a href="https://nextbsd.org/" style="color:inherit;">nextbsd.org</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+
+</body>
+</html>
