@@ -14,7 +14,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
 <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="page">
+<body class="page page-wide">
 
 <nav class="nav">
   <div class="wrap nav-inner">
@@ -68,38 +68,32 @@
       the screen, and how to get on the network. You should not have to tell it.
     </p>
 
-    <div class="benefits">
-      <div class="benefit" style="--b-accent: var(--accent-g);">
-        <div class="b-icon">kext</div>
-        <h3>Drivers load themselves</h3>
-        <p>No <code>loader.conf</code>, no <code>kld_list</code>, no <code>rc.conf</code>. Kexts carry their own device IDs and the kernel scans the live bus. Plugged in <em>is</em> configured.</p>
-      </div>
-      <div class="benefit" style="--b-accent: var(--accent-c);">
-        <div class="b-icon">kms</div>
-        <h3>The display comes up at full resolution</h3>
-        <p>Boot it in UTM, QEMU or VirtualBox and the display just works, at a proper resolution. Other BSDs leave a VM on a basic framebuffer; we ship the KMS drivers they don&rsquo;t.</p>
-      </div>
-      <div class="benefit" style="--b-accent: var(--accent-y);">
-        <div class="b-icon">iso</div>
-        <h3>The live image stays writable</h3>
-        <p>The first BSD of its kind with a pivot root on par with Linux. Boot to a <em>writable</em> root &mdash; install packages, change settings, break things. The image is never copied into RAM, so there is no boot delay and no memory tax, and your disk is never touched.</p>
-      </div>
-      <div class="benefit" style="--b-accent: var(--accent-r);">
-        <div class="b-icon">pid1</div>
-        <h3>Services restart themselves</h3>
-        <p>Services are plists, not shell scripts. <code>launchd</code> is PID 1 &mdash; parallel start, launch on demand, and whatever dies comes back.</p>
-      </div>
-      <div class="benefit" style="--b-accent: var(--accent-m);">
-        <div class="b-icon">net</div>
-        <h3>Networking configures itself</h3>
-        <p>DHCP fires the moment a link comes up. Bonjour is in the base, not a port. Wi-Fi waits for the handshake before it claims to be connected.</p>
-      </div>
-      <div class="benefit" style="--b-accent: var(--accent-c);">
-        <div class="b-icon">mach</div>
-        <h3>Mach IPC ships in the base</h3>
-        <p><code>libdispatch</code>, <code>libxpc</code>, CoreFoundation, IOKit. The actual Darwin runtime on a BSD kernel, not a compatibility shim.</p>
-      </div>
-    </div>
+    <ul class="feature-grid">
+      <li class="feature">
+        <h3 class="feature-name">Drivers load themselves</h3>
+        <p class="feature-desc">Kexts carry their own device IDs and the kernel scans the live bus. Plugged in <em>is</em> configured.</p>
+      </li>
+      <li class="feature">
+        <h3 class="feature-name">The display comes up at full resolution</h3>
+        <p class="feature-desc">Boot it in UTM, QEMU or VirtualBox and the display just works, at a proper resolution.</p>
+      </li>
+      <li class="feature">
+        <h3 class="feature-name">The live image stays writable</h3>
+        <p class="feature-desc">Boot to a <em>writable</em> root. The image is never copied into RAM, so there is no boot delay and no memory tax, and your disk is never touched.</p>
+      </li>
+      <li class="feature">
+        <h3 class="feature-name">Services restart themselves</h3>
+        <p class="feature-desc">Services are plists, not shell scripts. <code>launchd</code> is PID 1 &mdash; parallel start, launch on demand, and whatever dies comes back.</p>
+      </li>
+      <li class="feature">
+        <h3 class="feature-name">Networking configures itself</h3>
+        <p class="feature-desc">DHCP fires the moment a link comes up. Bonjour is in the base. Wi-Fi waits for the handshake before it claims to be connected.</p>
+      </li>
+      <li class="feature">
+        <h3 class="feature-name">Mach IPC ships in the base</h3>
+        <p class="feature-desc"><code>libdispatch</code>, <code>libxpc</code>, CoreFoundation, IOKit. The actual Darwin runtime on a BSD kernel.</p>
+      </li>
+    </ul>
   </div>
 </section>
 
