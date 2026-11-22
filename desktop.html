@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Desktop Preview &mdash; NextBSD</title>
+<meta name="description" content="Choose a desktop for NextBSD: the NextBSD Desktop, or Gershwin on NextBSD.">
+<meta property="og:title" content="NextBSD Desktop Preview">
+<meta property="og:description" content="Two desktops, one NextBSD.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nextbsd.org/desktop.html">
+<link rel="canonical" href="https://nextbsd.org/desktop.html">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="page">
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="index.html">
+      <svg class="nav-brand-mark" viewBox="60 60 280 320"
+           xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NextBSD cube">
+        <defs>
+          <linearGradient id="navcube-top" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#9a9aa6"/>
+            <stop offset="100%" stop-color="#5c5c66"/>
+          </linearGradient>
+          <linearGradient id="navcube-left" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#4a4a54"/>
+            <stop offset="100%" stop-color="#2a2a32"/>
+          </linearGradient>
+          <linearGradient id="navcube-right" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#70707c"/>
+            <stop offset="100%" stop-color="#44444e"/>
+          </linearGradient>
+        </defs>
+        <polygon points="200,60 340,140 200,220 60,140"   fill="url(#navcube-top)"/>
+        <polygon points="60,140 200,220 200,380 60,300"   fill="url(#navcube-left)"/>
+        <polygon points="340,140 200,220 200,380 340,300" fill="url(#navcube-right)"/>
+      </svg>
+      NextBSD
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Menu"
+            aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="why.html" data-nav="why">Why</a>
+      <a href="status.html" data-nav="status">Status</a>
+      <a href="history.html" data-nav="history">History</a>
+      <a href="team.html" data-nav="team">Team</a>
+      <a href="https://github.com/nextbsd/nextbsd/wiki">Documentation</a>
+      <a href="https://github.com/orgs/nextbsd/discussions">Discussions</a>
+      <a href="https://github.com/nextbsd/nextbsd">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<section id="desktop">
+  <div class="wrap">
+    <p class="kicker">Desktop Preview</p>
+    <h2 class="section-title">Choose your desktop.</h2>
+    <p class="section-lede">
+      Both run on the same NextBSD system &mdash; Mach, launchd and the rest
+      of the system layer underneath. Pick the desktop that suits you.
+    </p>
+
+    <div class="choices">
+      <article class="choice" style="--choice-accent: var(--accent-y);">
+        <div class="choice-shot">
+          <img src="assets/desktop-nextbsd.png" alt="The NextBSD Desktop: the menu, the Dock and the animated background" loading="lazy">
+        </div>
+        <div class="choice-body">
+          <p class="choice-tag">From the NextBSD project</p>
+          <h3 class="choice-name">NextBSD Desktop</h3>
+          <p class="choice-desc">
+            NextBSD&rsquo;s own OS-specific desktop: WindowServer, Workspace and the Dock,
+            with Software, Settings, Update and Installer. Its native apps draw
+            straight to WindowServer; X11 apps run alongside them through
+            XLibre.app, similar to an XQuartz model.
+          </p>
+          <ul class="choice-files">
+            <li><span>Intel / AMD (amd64)</span><span>ISO</span></li>
+            <li><span>ARM (arm64)</span><span>ISO</span></li>
+            <li><span>Raspberry Pi 5 / 500 / 500+</span><span>Image</span></li>
+          </ul>
+          <p class="choice-note">Already running NextBSD Server?
+            <code>pkg install NextBSD-desktop</code>, then restart.</p>
+          <div class="choice-cta">
+            <a class="btn btn-primary" href="https://github.com/nextbsd/nextbsd/releases/tag/continuous-desktop">Download NextBSD Desktop Preview &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="choice" style="--choice-accent: var(--accent-c);">
+        <div class="choice-shot">
+          <img src="https://github.com/gershwin-desktop/gershwin-desktop/releases/download/nextbsd-rc/gershwin-on-nextbsd-rc-20261020060953-x86_64.png" alt="Gershwin on NextBSD" loading="lazy">
+        </div>
+        <div class="choice-body">
+          <p class="choice-tag">From the <a href="https://github.com/gershwin-desktop">Gershwin Desktop project</a></p>
+          <h3 class="choice-name">Gershwin</h3>
+          <p class="choice-desc">
+            An agnostic GNUstep desktop environment welcoming to switchers, built by the
+            Gershwin Desktop project on top of NextBSD. It runs on XLibre itself,
+            so X11 apps fit in as first-class citizens, for better integration
+            with the apps you already use.
+          </p>
+          <ul class="choice-files">
+            <li><span>Intel / AMD (x86_64)</span><span>ISO</span></li>
+            <li class="soon"><span>ARM (arm64)</span><span>Coming in the future</span></li>
+            <li class="soon"><span>Raspberry Pi 5 / 500 / 500+</span><span>Coming in the future</span></li>
+          </ul>
+          <p class="choice-note">Preview, released by the Gershwin Desktop project.</p>
+          <div class="choice-cta">
+            <a class="btn btn-ghost" href="https://github.com/gershwin-desktop/gershwin-desktop/releases/tag/nextbsd-rc">Download Gershwin Desktop Preview &rarr;</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <p class="choice-footnote">
+      Looking for a system without a desktop?
+      <a href="https://github.com/nextbsd/nextbsd/releases/tag/continuous-server">Download the Server Preview &rarr;</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="colophon">
+      <span>&copy; 2026 The NextBSD Project</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+
+</body>
+</html>
