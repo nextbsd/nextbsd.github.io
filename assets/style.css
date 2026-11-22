@@ -682,3 +682,67 @@
     padding-top: 0;
     border-top: none;
   }
+
+  /* ---------- Desktop Preview: choose a desktop ---------- */
+  .choices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+  }
+  @media (max-width: 860px) { .choices { grid-template-columns: 1fr; } }
+  .choice {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: linear-gradient(180deg, var(--panel) 0%, #08080a 100%);
+    overflow: hidden;
+  }
+  .choice-shot {
+    /* The screenshots are full screens (16:9): show all of them, Dock and
+       menu included, rather than cropping the edges. */
+    aspect-ratio: 16 / 9;
+    background: #050507;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  .choice-shot img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .choice-shot-nextbsd {
+    background:
+      radial-gradient(500px 260px at 50% 40%, rgba(255, 204, 0, 0.08), transparent 70%),
+      #050507;
+    color: var(--fg-mute);
+    font-size: 13px;
+    letter-spacing: 0.3px;
+  }
+  .choice-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
+  .choice-tag {
+    margin: 0 0 6px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--choice-accent);
+  }
+  .choice-tag a { color: inherit; }
+  .choice-name { margin: 0 0 10px; font-size: 26px; font-weight: 700; letter-spacing: -0.6px; }
+  .choice-desc { margin: 0 0 18px; color: var(--fg-dim); font-size: 15px; }
+  .choice-files { list-style: none; margin: 0 0 22px; padding: 0; font-size: 14px; }
+  .choice-files li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .choice-files li span:last-child { color: var(--fg-mute); white-space: nowrap; }
+  .choice-files li.soon span:first-child { color: var(--fg-mute); }
+  /* The buttons sit at the bottom of equal-height cards and fill the card's
+     width, so the two line up and match in size whatever is above them. */
+  .choice-cta { margin-top: auto; padding-top: 22px; }
+  .choice-cta .btn { display: flex; justify-content: center; width: 100%; }
+  .choice-note { margin: 0; font-size: 13px; color: var(--fg-mute); }
+  .choice-footnote { margin: 36px 0 0; text-align: center; color: var(--fg-mute); font-size: 14px; }
